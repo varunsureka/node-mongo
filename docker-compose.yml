@@ -1,0 +1,18 @@
+version: '3'
+services:
+  node-ap:
+    build: .
+    networks:
+      - node-mongo
+  mongo:
+    image: mongo
+    networks:
+      - node-mongo
+    volumes:
+      - node-mongo-vol:/data/db
+networks:
+  node-mongo:
+    driver: bridge
+volumes:
+  node-mongo-vol:
+    
